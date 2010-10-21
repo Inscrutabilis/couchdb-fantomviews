@@ -1,0 +1,22 @@
+["log","Starting"]
+["log","Command: reset"]
+true
+["log","Command: add_fun"]
+true
+["log","Command: add_fun"]
+true
+["log","Command: map_doc"]
+[[[null,"somevalue"],["foo","bar"]]]
+["log","Command: reduce"]
+[true,["somevaluebar"]]
+["log","Command: rereduce"]
+[true,["somevalue!!!bar!!!"]]
+["log","Command: reset"]
+true
+["log","Command: map_doc"]
+[[[]]]
+["log","Command: add_fun"]
+true
+["log","Command: map_doc"]
+[[[null,"somevalue"]]]
+["log","Command: die"]

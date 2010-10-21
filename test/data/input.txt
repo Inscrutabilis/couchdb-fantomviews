@@ -1,0 +1,50 @@
+["reset"]
+["add_fun", "static List map(Map doc) { return [[null, doc[\"somefield\"]],]; }"]
+["add_fun", "static List map(Map doc) { return [[\"foo\", \"bar\"],]; }"]
+["map_doc", {
+   "_id": "bar",
+   "_rev": "1-823bb845c558d9bacac274f54ea91399",
+   "somefield": "somevalue"
+}]
+["reduce",
+["static Str reduce(List data, Bool rereduce := false) {
+  Str r := \"\";
+  if (rereduce)
+  {
+    data.each |Str d| { r += d + \"!!!\"; };
+  }
+  else
+  {
+    data.each |List d| { r += d[1]; };
+  }
+  return r; }"],
+[[[null, null],"somevalue"],[["foo", null],"bar"]]
+]
+["rereduce",
+["static Str reduce(List data, Bool rereduce := false) {
+  Str r := \"\";
+  if (rereduce)
+  {
+    data.each |Str d| { r += d + \"!!!\"; };
+  }
+  else
+  {
+    data.each |List d| { r += d[1]; };
+  }
+  return r; }"],
+["somevalue","bar"]
+]
+["reset"]
+["map_doc", {
+   "_id": "bar",
+   "_rev": "1-823bb845c558d9bacac274f54ea91399",
+   "somefield": "somevalue"
+}]
+["add_fun", "static List map(Map doc) { return [[null, doc[\"somefield\"]],]; }"]
+["map_doc", {
+   "_id": "bar",
+   "_rev": "1-823bb845c558d9bacac274f54ea91399",
+   "somefield": "somevalue"
+}]
+["die"]
+
